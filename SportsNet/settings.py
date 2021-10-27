@@ -11,11 +11,19 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-
+from django.contrib.messages import constants as messages
+from . info import *
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+EMAIL_USE_TLS = EMAIL_USE_TLS
+EMAIL_HOST = EMAIL_HOST
+EMAIL_HOST_USER = EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
+EMAIL_PORT = EMAIL_PORT
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -41,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Creating Apps 
     'Web_App',
+    'svg',
 ]
 
 MIDDLEWARE = [
@@ -135,3 +144,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SVG_DIRS=[
+    os.path.join(BASE_DIR, 'my-svgs')
+]
